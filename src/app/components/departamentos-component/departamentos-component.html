@@ -1,0 +1,38 @@
+<div>
+    <h1>HOME DEPARTAMENTOS</h1>
+    @if (departamentos.length>0) {
+        <div class="table-responsive">
+        <table class="table table-primary" >
+            <thead>
+                <tr>
+                    <th scope="col">Numero</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Localidad</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (departamento of departamentos; track $index) {
+                    <tr>
+                        <td>{{departamento.numero}}</td>
+                        <td>{{departamento.nombre}}</td>
+                        <td>{{departamento.localidad}}</td>
+                        <td>
+                            <button class="btn btn-success" 
+                            routerLink="/details/{{departamento.numero}}/
+                            {{departamento.nombre}}/
+                            {{departamento.localidad}}">Details</button>
+                            
+                            <button class="btn btn-info">Update</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    }@else{
+        <h2>Cargando...</h2>
+    }
+    
+</div>
