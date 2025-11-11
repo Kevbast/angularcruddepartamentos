@@ -12,16 +12,14 @@
                 </tr>
             </thead>
             <tbody>
-                @for (departamento of departamentos; track $index) {
+                @for (dept of departamentos; track $index) {
                     <tr>
-                        <td>{{departamento.numero}}</td>
-                        <td>{{departamento.nombre}}</td>
-                        <td>{{departamento.localidad}}</td>
+                        <td>{{dept.numero}}</td>
+                        <td>{{dept.nombre}}</td>
+                        <td>{{dept.localidad}}</td>
                         <td>
                             <button class="btn btn-success" 
-                            routerLink="/details/{{departamento.numero}}/
-                            {{departamento.nombre}}/
-                            {{departamento.localidad}}">Details</button>
+                            [routerLink]="['/details', dept.numero, dept.nombre,dept.localidad]">Details</button>
                             
                             <button class="btn btn-info">Update</button>
                             <button class="btn btn-danger">Delete</button>
@@ -31,8 +29,6 @@
             </tbody>
         </table>
     </div>
-    }@else{
-        <h2>Cargando...</h2>
     }
     
 </div>
