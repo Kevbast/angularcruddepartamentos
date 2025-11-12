@@ -14,7 +14,10 @@ public departamentos!:Array<Departamento>;
 
 constructor(private _service:ServiceDepartamento){}
  ngOnInit(): void {
-   this._service.getDepartamentos().subscribe(response=>{
+   this.loadDept();
+ }
+ loadDept():void{
+    this._service.getDepartamentos().subscribe(response=>{
     this.departamentos=response;
    })
  }
@@ -23,9 +26,7 @@ constructor(private _service:ServiceDepartamento){}
  deleteDept(numero:number):void{
   this._service.deleteDepartamento(numero).subscribe(response=>{
       console.log("Departamento "+ numero+ " Eliminado!!");
-      this._service.getDepartamentos().subscribe(response=>{//recargamos la página
-        this.departamentos=response;
-      })
+      this.loadDept();
   })
  }
 
