@@ -19,4 +19,14 @@ constructor(private _service:ServiceDepartamento){}
    })
  }
 
+ //MÉTODO DELETE IMPLEMENTADO DENTRO DE DEPARTAMENTOS;
+ deleteDept(numero:number):void{
+  this._service.deleteDepartamento(numero).subscribe(response=>{
+      console.log("Departamento "+ numero+ " Eliminado!!");
+      this._service.getDepartamentos().subscribe(response=>{//recargamos la página
+        this.departamentos=response;
+      })
+  })
+ }
+
 }

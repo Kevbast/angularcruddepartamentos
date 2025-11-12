@@ -26,4 +26,32 @@ export class ServiceDepartamento{
 
         return this._http.post(apiUrl,json,{headers:header});
     }
+
+    findDepartamento(id:number):Observable<Departamento>{//DEVOLVEMOS DEPARTAMENTO!
+        let request="api/departamentos/"+id;
+        let apiUrl=environment.apiDepartamentos + request;
+        return this._http.get<Departamento>(apiUrl);
+    }
+
+    //ACTUALIZAMOS EL DEPARTAMENTO 
+    updateDepartamento(departamento:Departamento):Observable<any>{//no devuelve nada así q ponemos any
+        let json = JSON.stringify(departamento);//lo convertimos en json,como en react
+        //CREAMOS LA CABECERA DE LA PETICION
+        let header = new HttpHeaders().set("Content-type","application/json");
+        let request="api/departamentos";
+        let apiUrl=environment.apiDepartamentos + request;
+
+        return this._http.put(apiUrl,json,{headers:header});
+    }
+
+    //IMPLEMENTACIÓN DE DELETE DENTRO DE DEPARTAMENTOS
+    deleteDepartamento(id:number):Observable<Array<Departamento>>{
+        let request="api/departamentos/"+id;
+        let apiUrl=environment.apiDepartamentos + request;
+        return this._http.delete<Array<Departamento>>(apiUrl);
+    }
+
+
+
+
 }

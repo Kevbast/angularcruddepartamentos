@@ -1,0 +1,15 @@
+<div>
+    <h1>ACTUALIZAR DEPARTAMENTO</h1>
+    @if (departamento) {
+        <form #plantillaForm="ngForm" class="form-control" style="width: 50%; margin: auto;">
+        <label class="form-label" >Numero</label>
+        <input type="number" name="cajanum" #cajanum class="form-control" value="{{departamento.numero}}" disabled>
+        <label class="form-label">Nombre</label>
+        <input type="text" name="cajanombre" #cajanombre class="form-control" value="{{departamento.nombre}}">
+        <label class="form-label">Localidad</label>
+        <input type="text" name="cajalocalidad" #cajalocalidad class="form-control" value="{{departamento.localidad}}">
+        <br>
+        <button (click)="updateDepartamento()" class="btn btn-info">Actualizar</button>
+    </form>
+    }
+</div>

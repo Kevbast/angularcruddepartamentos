@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
 import { ServiceDepartamento } from './services/service.departamentos';
 import { DetailsDepartamentosComponent } from './components/details-departamentos.component/details-departamentos.component';
+import { UpdateDepartamentoComponent } from './components/update-departamento.component/update-departamento.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DetailsDepartamentosComponent } from './components/details-departamento
     MenuComponent,
     DepartamentosComponent,
     CreateDepartamentosComponent,
-    DetailsDepartamentosComponent
+    DetailsDepartamentosComponent,
+    UpdateDepartamentoComponent
   ],
   imports: [
     FormsModule,//IMPORTAMOS FORMULARIOS

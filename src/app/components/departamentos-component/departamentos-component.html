@@ -1,6 +1,6 @@
 <div>
     <h1>HOME DEPARTAMENTOS</h1>
-    @if (departamentos.length>0) {
+    @if (departamentos) {
         <div class="table-responsive">
         <table class="table table-primary" >
             <thead>
@@ -21,8 +21,8 @@
                             <button class="btn btn-success" 
                             [routerLink]="['/details', dept.numero, dept.nombre,dept.localidad]">Details</button>
                             
-                            <button class="btn btn-info">Update</button>
-                            <button class="btn btn-danger">Delete</button>
+                            <button class="btn btn-info" [routerLink]="['/update',dept.numero]">Update</button>
+                            <button class="btn btn-danger" (click)="deleteDept(dept.numero)">Delete</button>
                         </td>
                     </tr>
                 }
